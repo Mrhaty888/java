@@ -1,63 +1,70 @@
 function somar(){
-    let input1 = document.getElementById("numero1");
-    let input2 = document.getElementById("numero2");
     const spanResultado = document.getElementById('resultado');
 
-    const valor1 = parseFloat(input1.value) || 0;
-    const valor2 = parseFloat(input2.value) || 0;
-    const soma = valor1 + valor2;
+    lista.forEach( numero => {
+        total += numero;
+    })
 
-    spanResultado.textContent = soma;
-
-    input1.value = 0;
-    input2.value = 0;
+    spanResultado.textContent = total;
 
 }
 
 function subtrair(){
-    const input1 = document.getElementById("numero1");
-    const input2 = document.getElementById("numero2");
     const spanResultado = document.getElementById('resultado');
 
-    const valor1 = parseFloat(input1.value) || 0;
-    const valor2 = parseFloat(input2.value) || 0;
-    const subtrair = valor1 - valor2;
+    if (lista.length > 0) {
+        total = lista[0];
+        // Subtrai os próximos números da lista
+        for (let i = 1; i < lista.length; i++) {
+            total -= lista[i];
+        }
+    } else {
+        total = 0;
+    }
 
-    spanResultado.textContent = subtrair;
-
-    input1.value = 0;
-    input2.value = 0;
-
+    spanResultado.textContent = total;
 }
+
+
 
 function multiplicar(){
-    const input1 = document.getElementById("numero1");
-    const input2 = document.getElementById("numero2");
     const spanResultado = document.getElementById('resultado');
 
-    const valor1 = parseFloat(input1.value) || 0;
-    const valor2 = parseFloat(input2.value) || 0;
-    const subtrair = valor1 * valor2;
+    if (lista.length > 0) {
+        total = lista[0];
+        for (let i = 1; i < lista.length; i++) {
+            total *= lista[i];
+        }
+    } else {
+        total = 0;
+    }
 
-    spanResultado.textContent = subtrair;
-
-    input1.value = 0;
-    input2.value = 0;
-
+    spanResultado.textContent = total;
 }
 
+
 function dividir(){
-    const input1 = document.getElementById("numero1");
-    const input2 = document.getElementById("numero2");
-    const spanResultado = document.getElementById('resultado');
+   if (lista.length > 0) {
+        total = lista[0];
+        for (let i = 1; i < lista.length; i++) {
+            if (lista[i] === 0) {
+                spanResultado.textContent = "Erro (Divisão por 0)";
+                return;
+            }
+            total /= lista[i];
+        }
+    } else {
+        total = 0;
+    }
 
-    const valor1 = parseFloat(input1.value) || 0;
-    const valor2 = parseFloat(input2.value) || 0;
-    const subtrair = valor1 / valor2;
+    spanResultado.textContent = total;
+}
 
-    spanResultado.textContent = subtrair;
+let lista = [];
+let total = 0;
 
-    input1.value = 0;
-    input2.value = 0;
-
+function adicionar(){
+    let input = document.getElementById("numero1");
+    const valor1 = parseFloat(input.value) || 0;
+    lista.push(valor1);
 }
