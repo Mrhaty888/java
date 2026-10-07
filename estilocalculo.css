@@ -1,0 +1,35 @@
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 100px; 
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 8px 15px;
+    width: 100%; /* Faz os botões ocuparem a largura total da caixa */
+    cursor: pointer;
+}
+
+h3 {
+    margin-top: 15px;
+}
+
+.calculadora {
+    display: flex;
+    flex-direction: column; /* Correção da grafia: 'column' */
+    align-items: center;    /* Centraliza os itens horizontalmente */
+    justify-content: center;
+
+    border: 1px solid #ccc;   
+    padding: 20px;            
+    max-width: 250px; /* Ajustado para segurar melhor os itens */
+    margin: 50px auto; /* Adicionado margem acima/abaixo para desencostar do topo */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: efeito de sombra na caixa */
+}
